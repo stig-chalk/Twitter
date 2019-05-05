@@ -16,7 +16,6 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweets()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
     }
@@ -38,7 +37,7 @@ class HomeTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.myRefreshControl.endRefreshing()
         }, failure: { (Error) in
-            print("1st, oops")
+            print("1st, oops \(Error)")
         })
         
     }
